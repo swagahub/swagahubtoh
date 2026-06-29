@@ -1,0 +1,80 @@
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+
+
+local Window = WindUI:CreateWindow({
+    Title = "Swaga Hub | Key System",
+    Icon = "rbxassetid://136657221209337", 
+    Author = "by @worldedil",
+    Folder = "GJEHYW1",
+    
+    Size = UDim2.fromOffset(580, 460),
+    MinSize = Vector2.new(560, 350),
+    MaxSize = Vector2.new(850, 560),
+    Transparent = true,
+    Theme = "Sky",
+    Resizable = true,
+    SideBarWidth = 200,
+    BackgroundImageTransparency = 0.9, 
+    HideSearchBar = true,
+    ScrollBarEnabled = false,
+    
+    User = {
+        Enabled = true,
+        socall1mprime = true,
+        Callback = function()
+            print("Swaga Hub User Panel")
+        end,
+    },
+    
+    
+    KeySystem = { 
+        
+        Key = { "SwagaHubBust" },
+        
+        Note = "Введите ключ.",
+        
+        Thumbnail = {
+            Image = "rbxassetid://136657221209337", 
+            Title = "Проверка доступа",
+        },
+        
+        SaveKey = true, 
+        
+   
+        Callback = function()
+            Window:SetTitle("Swaga hub | Scripts")
+        end,
+    },
+})
+
+
+Window:EditOpenButton({
+    Title = "Open menu",
+    Icon = "zap",
+    CornerRadius = UDim.new(0,20),
+    StrokeThickness = 2,
+    Color = ColorSequence.new(
+        Color3.fromHex("4b09db"), 
+        Color3.fromHex("b809db")
+    ),
+    OnlyMobile = false,
+    Enabled = true,
+    Draggable = true,
+})
+
+
+local Tab = Window:Tab({
+    Title = "Главная",
+    Icon = "zap",
+    Locked = false,
+})
+
+
+local Button = Tab:Button({
+    Title = "Включить наш скрипт на плейс Tower Of Hell",
+    Desc = "Скрипт для товер оф хелл",
+    Locked = false,
+    Callback = function()
+loadstring(game:HttpGet("https://gist.github.com/swagahub/a20c77c8df592888f45a700859d9563e/raw/"))()
+    end
+})
