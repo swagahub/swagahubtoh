@@ -75,6 +75,6 @@ local Button = Tab:Button({
     Desc = "Скрипт для товер оф хелл",
     Locked = false,
     Callback = function()
-loadstring(game:HttpGet("https://gist.github.com/swagahub/a20c77c8df592888f45a700859d9563e/raw/"))()
+loadstring(game:HttpGet("https://pastefy.app/GXEpKb9J/raw"))()          
     end
 })
