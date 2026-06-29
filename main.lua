@@ -38,7 +38,7 @@ local Window = WindUI:CreateWindow({
             Title = "Проверка доступа",
         },
         
-        SaveKey = true, 
+        SaveKey = false, 
         
    
         Callback = function()
