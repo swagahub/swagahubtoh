@@ -26,7 +26,7 @@ local Window = WindUI:CreateWindow({
         end,
     },
     
-    
+    -- Тут ес че будут еще премиум ключи
     KeySystem = { 
         
         Key = { "SwagaHubBust" },
@@ -38,14 +38,18 @@ local Window = WindUI:CreateWindow({
             Title = "Проверка доступа",
         },
         
-        SaveKey = false, 
+        SaveKey = true, 
         
    
         Callback = function()
-            Window:SetTitle("Swaga hub | Scripts")
+            Window:SetTitle("Swaga Hub | Scripts")
         end,
     },
 })
+
+if Window.KeyVerified or not Window.KeySystem then
+    Window:SetTitle("Swaga Hub | Scripts")
+end
 
 
 Window:EditOpenButton({
@@ -78,3 +82,35 @@ local Button = Tab:Button({
 loadstring(game:HttpGet("https://pastefy.app/GXEpKb9J/raw"))()          
     end
 })
+
+local SettingsTab = Window:Tab({
+    Title = "Настройки",
+    Icon = "settings",
+    Locked = false,
+})
+
+local ResetButton = SettingsTab:Button({
+    Title = "Сбросить Аккаунт / Ключ",
+    Desc = "Полностью стирает кэш сохраненного ключа",
+    Locked = false,
+    Callback = function()
+        if delfolder then
+            pcall(function() delfolder("GJEHYW1") end)
+        elseif delfile then
+            pcall(function() delfile("GJEHYW1/keys.json") end)
+            pcall(function() delfile("GJEHYW1/config.json") end)
+            pcall(function() delfile("GJEHYW1/settings.json") end)
+            pcall(function() delfile("GJEHYW1/Key.json") end)
+        end
+
+        WindUI:Notify({
+            Title = "Сброс выполнен!",
+            Content = "Кэш очищен. Пожалуйста, перезапустите скрипт.",
+            Duration = 5
+        })
+
+        task.wait(0.5)
+        Window:Close()
+    end
+})
+
